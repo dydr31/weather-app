@@ -1,0 +1,29 @@
+.switch{
+    margin-right: 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    
+}
+
+.button{
+    background-color: none;
+    border: none;
+    // border-top: .5px grey solid;
+    // border-bottom: .5px grey solid;
+    font-size: 18px;
+}
+
+.button:hover, .button:active, .on{
+    background-color: rgb(200, 200, 200);
+}
+.dark{
+    .button{
+        background-color: rgb(107, 102, 114);
+        color:rgb(206, 204, 204);
+    }
+    .button:hover, .button:active, .on{
+        background-color: rgb(75, 72, 73);
+    }
+}

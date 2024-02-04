@@ -1,0 +1,24 @@
+.icon {
+  width: 25px;
+  height: 25px;
+  margin: .5rem;
+}
+
+
+.dark {
+  .icon{
+    filter: brightness(0) invert(1);
+  }
+}
+
+
+
+@media (min-width: 700px) {
+  .icon {
+    width: 40%;
+    max-width: 4rem;
+    height: auto;
+    margin: 0;
+    align-self: center;
+  }
+}

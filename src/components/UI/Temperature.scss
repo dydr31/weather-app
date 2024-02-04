@@ -1,0 +1,22 @@
+@import "../../_variables.scss";
+
+.temp {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tMax {
+  margin: $size-default;
+  font-size: 27px;
+  margin: 0;
+}
+
+.tMin {
+  margin: $size-default;
+  width: 2rem;
+  font-size: 20px;
+  margin: 0;
+}

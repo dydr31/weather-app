@@ -1,0 +1,28 @@
+@import '../../_variables.scss';
+
+.card{
+    align-items: center;
+    text-align: center;
+    padding-bottom: 1em;
+}
+
+.temp{
+    align-items: center;
+    text-align: center;
+    font-size: 26px;
+}
+hr{
+    width: 100%;
+    border: .5px $secondary-text-color solid;
+    margin-bottom: 1.2rem;
+    margin-top: 1.2rem;
+}
+
+.list{
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+
+    gap: .5rem;
+}

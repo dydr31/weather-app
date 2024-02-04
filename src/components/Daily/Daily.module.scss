@@ -1,0 +1,76 @@
+@import '../../_variables.scss';
+
+.daily{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+
+    border-left: .5px grey solid;
+    border-bottom: .5px grey solid;
+    
+    padding: 0;
+    margin: 1rem;
+}
+
+.averages{
+    padding: 1rem;
+    border-top: .5px solid grey;
+    border-bottom: .5px solid grey;
+    // background-color: $card-background;
+    display: grid;
+    margin-top:0;
+    // margin-left: .5em;
+    // margin-right: .5em;
+    grid-template-columns: 0% repeat(4, 25%);
+    flex-direction: row;
+}
+
+.list{
+    color: $secondary-text-color;
+    font-weight: 500;
+    position: relative;
+    list-style: none;
+    padding:0;
+    width: 500px;
+
+    top: 5.5rem;
+}
+
+.prcp{
+    position: relative;
+    top: 3.5rem;
+}
+
+.humidity{
+    position: relative;
+    top: 8.6rem;
+
+}
+
+.pressure{
+    position: relative;
+    top: 12rem;
+
+}
+
+.wind {
+    position: relative;
+    top: 17.7rem;
+}
+
+@media (min-width: 700px){
+    .daily{
+        margin-left: 6%;
+        margin-right: 6%;
+        padding: 0;
+        
+        // max-width: 50rem;
+    }
+    .averages{
+        border: .5px solid grey;
+        border-radius: .2rem;
+       
+        
+        margin-left: 6%;
+        margin-right: 6%;
+    }
+}

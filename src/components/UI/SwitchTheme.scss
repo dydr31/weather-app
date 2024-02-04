@@ -1,0 +1,59 @@
+@import "../../_variables.scss";
+
+.switch-menu {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 6%;
+  align-items: center;
+}
+.switch-button {
+  background-color: $main-color;
+  border: none;
+  font-size: large;
+  cursor: pointer;
+}
+
+.switch-button:hover,
+.switch-button:active {
+  background-color: map-get($active-button-colors, main);
+  color: map-get($active-button-colors, secondary);
+  .nav-image {
+    filter: brightness(0) invert(1);
+  }
+}
+
+.switch-button {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.on {
+  background-color: $accent-color;
+}
+
+.dark {
+  .on {
+    background-color: $accent-color-dark;
+  }
+  button{
+    background-color: $main-color-dark;
+    color: white;
+  }
+  button:hover,
+  button:active {
+    background-color: map-get($active-button-colors-dark, main);
+    color: map-get($active-button-colors, secondary);
+    .nav-image {
+      filter: brightness(0) invert(1);
+    }
+  }
+}
+
+@media (min-width: 700px) {
+  .switch-menu {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 6%;
+    align-items: center;
+  }
+}
