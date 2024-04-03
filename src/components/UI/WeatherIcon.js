@@ -48,7 +48,8 @@ const WeatherIcon = (props) => {
   }
 
   return (
-    <React.Fragment>
+    <>
+      {console.log(weathercode)}
       <img
         className={`${"icon"} ${theme}
          
@@ -58,7 +59,7 @@ const WeatherIcon = (props) => {
         title={icon.alt}
       />
       {/* <p> {text} </p> */}
-    </React.Fragment>
+    </>
   );
 };
 

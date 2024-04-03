@@ -4,7 +4,7 @@ import WeeklyTodayCard from "./WeeklyTodayCard";
 import Loading from "../UI/Loading";
 import "./Weekly.scss";
 import { DataContext } from "../../context/DataContext";
-import { getWeatherData } from "../../util/functions";
+import { getWeatherData } from "../../util/getWeatherData";
 
 const Weekly = (props) => {
   const [data, setData] = useState([]);

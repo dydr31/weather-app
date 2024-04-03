@@ -21,9 +21,8 @@ const WeeklyCard = (props) => {
       <Date time={props.data.time} />
 
       <div className="other">
-        <WeatherIcon weathercode={props.data.weathercode} isNight={false}/>
+        <WeatherIcon weathercode={props.data.wcode}/>
         <Temperature
-          isC={props.data.isC}
           tMax={props.data.tMax}
           tMin={props.data.tMin}
         />

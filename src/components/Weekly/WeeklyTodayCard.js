@@ -19,7 +19,7 @@ const WeeklyTodayCard = (props) => {
       <Date time={time} text={"Today, "} />
 
       <div className="main-elements">
-        <WeatherIcon weathercode={props.data.weathercode} isNight={false} />
+        <WeatherIcon weathercode={props.data.wcode} isNight={false} />
         <Temperature
           isC={props.isC}
           tMax={props.data.tMax}

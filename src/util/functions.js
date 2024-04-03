@@ -28,45 +28,45 @@ export async function getCities(cityName) {
   }
 }
 
-export const getWeatherData = async (lat, lon) => {
-  try {
-    const response = await fetch(
-      "https://api.open-meteo.com/v1/forecast?latitude=" +
-        lat +
-        "&longitude=" +
-        lon +
-        "&daily=weathercode,temperature_2m_max,temperature_2m_min,precipitation_sum,uv_index_max,precipitation_probability_mean,windspeed_10m_max,winddirection_10m_dominant&timezone=Europe%2FMoscow"
-    );
-    const data = await response.json();
-    // console.log(data);
-    // console.log(data);
+// export const getWeatherData = async (lat, lon) => {
+//   try {
+//     const response = await fetch(
+//       "https://api.open-meteo.com/v1/forecast?latitude=" +
+//         lat +
+//         "&longitude=" +
+//         lon +
+//         "&daily=weathercode,temperature_2m_max,temperature_2m_min,precipitation_sum,uv_index_max,precipitation_probability_mean,windspeed_10m_max,winddirection_10m_dominant&timezone=Europe%2FMoscow"
+//     );
+//     const data = await response.json();
+//     // console.log(data);
+//     // console.log(data);
 
-    let restructuredData = [];
+//     let restructuredData = [];
 
-    for (let key in data.daily.temperature_2m_min) {
-      restructuredData.push({
-        time: new Date(
-          data.daily.time[key].slice(0, 4),
-          data.daily.time[key].slice(5, 7) - 1,
-          data.daily.time[key].slice(8, 10)
-        ),
+//     for (let key in data.daily.temperature_2m_min) {
+//       restructuredData.push({
+//         time: new Date(
+//           data.daily.time[key].slice(0, 4),
+//           data.daily.time[key].slice(5, 7) - 1,
+//           data.daily.time[key].slice(8, 10)
+//         ),
 
-        tMin: Math.round(data.daily.temperature_2m_min[key]),
-        tMax: Math.round(data.daily.temperature_2m_max[key]),
-        prcp: data.daily.precipitation_sum[key],
-        uv: data.daily.uv_index_max[key],
-        wcode: data.daily.weathercode[key],
-        prcp_prob: data.daily.precipitation_probability_mean[key],
-        wind: data.daily.windspeed_10m_max[key],
-        wind_dir: data.daily.winddirection_10m_dominant[key],
-      });
-    }
+//         tMin: Math.round(data.daily.temperature_2m_min[key]),
+//         tMax: Math.round(data.daily.temperature_2m_max[key]),
+//         prcp: data.daily.precipitation_sum[key],
+//         uv: data.daily.uv_index_max[key],
+//         wcode: data.daily.weathercode[key],
+//         prcp_prob: data.daily.precipitation_probability_mean[key],
+//         wind: data.daily.windspeed_10m_max[key],
+//         wind_dir: data.daily.winddirection_10m_dominant[key],
+//       });
+//     }
 
-    return restructuredData;
-  } catch (err) {
-    console.error("error getting weather data using open-meteo api");
-  }
-};
+//     return restructuredData;
+//   } catch (err) {
+//     console.error("error getting weather data using open-meteo api");
+//   }
+// };
 
 export async function getLocation() {
   try {
