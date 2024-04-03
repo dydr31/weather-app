@@ -25,7 +25,6 @@ function App() {
   });
 
   const [showError, setShowError] = useState(false);
-
   async function getCityCoords() {
     const response = await fetch(
       "https://geocode.maps.co/search?q=" + city
@@ -68,7 +67,7 @@ function App() {
 
       <SwitchTheme />
       <footer className={classes.footer}>
-        <p>by dydr31@github</p>
+        <p>copyright by copyright</p>
         <a
           href="https://www.flaticon.com/free-icons"
           title="icons"
