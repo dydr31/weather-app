@@ -125,7 +125,7 @@ const Daily = (props) => {
   }
 
   return (
-    <React.Fragment>
+    <>
       {/* <ul className={classes.daily}>
         {data.map((x) => (
           <DailyCard key={Math.random()} data={x} />
@@ -146,7 +146,7 @@ const Daily = (props) => {
         <AverageParametersCard data={getAverage(evening)} time={'Evening'}/>
         <AverageParametersCard data={getAverage(night)} time={'Night'}/>
       </ul>
-    </React.Fragment>
+    </>
   );
 };
 

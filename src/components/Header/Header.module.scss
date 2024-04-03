@@ -61,6 +61,11 @@
     // }
 }
 
+.elements {
+  display: flex;
+  flex-direction: row;
+  gap: .2rem;
+}
 
 
 @media (min-width: 700px) {

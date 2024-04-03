@@ -5,13 +5,7 @@ import { useContext } from "react";
 import { StateContext } from "../../context/StateContext";
 import { DataContext } from "../../context/DataContext";
 
-export type propsElement = {
-  name: string;
-  lat: number;
-  lon: number;
-};
-
-export const DropDownElement: React.FC<{ data: propsElement }> = (props) => {
+export const DropDownElement = (props) => {
   const setShow = useContext(StateContext).setShowDropDown;
   const setCityName = useContext(DataContext).setCityName
 
@@ -24,7 +18,7 @@ export const DropDownElement: React.FC<{ data: propsElement }> = (props) => {
 
   };
 
-  const trimCityName = (name: string) => {
+  const trimCityName = (name) => {
     let index = name.indexOf(',')
     let trimmed = name.slice(0,index)
     return trimmed

@@ -5,7 +5,7 @@ import classes from "./SwitchState.module.scss";
 import { DataContext } from "../../context/DataContext";
 
 const SwitchState = (props) => {
-  const { state, setS } = useContext(StateContext);
+  const { state, setState } = useContext(StateContext);
 
   const {theme} = useContext(ThemeContext)
 
@@ -14,11 +14,11 @@ const SwitchState = (props) => {
 
   const[isOn, setIsOn] = useState(true)
   const setDailyStateHandle = () => {
-    setS("daily");
+    setState("daily");
     setIsOn(false)
   };
   const setWeeklyStateHandle = () => {
-    setS("weekly");
+    setState("weekly");
     setIsOn(true)
   };
 
