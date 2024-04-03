@@ -1,0 +1,14 @@
+.li{
+    font-size: small;
+    border-top: 1px grey solid;
+    padding: .5rem;
+}
+
+.li:hover{
+    background-color: rgb(185, 185, 185);
+}
+
+.li p {
+    margin: 0;
+    padding:0;
+}

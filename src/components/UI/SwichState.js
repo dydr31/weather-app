@@ -2,10 +2,16 @@ import { useContext, useState } from "react";
 import { StateContext } from "../../context/StateContext";
 import { ThemeContext } from "../../context/ThemeContext";
 import classes from "./SwitchState.module.scss";
+import { DataContext } from "../../context/DataContext";
 
 const SwitchState = (props) => {
   const { state, setS } = useContext(StateContext);
+
   const {theme} = useContext(ThemeContext)
+
+  const {cityName} = useContext(DataContext)
+
+
   const[isOn, setIsOn] = useState(true)
   const setDailyStateHandle = () => {
     setS("daily");
@@ -19,7 +25,7 @@ const SwitchState = (props) => {
   
   return (
     <div className={`${classes.switch} ${classes[theme]}`}>
-      <h2>{props.city}</h2>
+      <h2>{cityName}</h2>
       <div>
         <button
           onClick={setWeeklyStateHandle}

@@ -1,5 +1,5 @@
 import classes from "./App.module.scss";
-import Header from "./components/Header";
+import Header from "./components/Header/Header";
 import Weekly from "./components/Weekly/Weekly";
 import React, { useState, useEffect, useContext } from "react";
 import Daily from "./components/Daily/Daily";
@@ -57,7 +57,7 @@ function App() {
         isC={unitsHandler}
         showError={showError}
       />
-      {!showError && <SwitchState city={city} />}
+      {!showError && <SwitchState/>}
 
       {showError === false && state === "weekly" && (
         <Weekly isC={units} city={city} coords={coords} />
