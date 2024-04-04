@@ -1,4 +1,4 @@
-
+@import  '../../variables';
 .list{
     display: flex;
     flex-direction: column;
@@ -6,13 +6,6 @@
     margin: 0;
     border-bottom: .05rem solid gray;
 }
-
-h2{
-    text-align: center;
-}
-
-
-
 
 
 @media (min-width: 700px){
@@ -24,9 +17,4 @@ h2{
         gap: 1rem;
         border: none;
     }
-    h2 {
-        text-align: left;
-        margin: .5rem;
-        margin-left: 6%;
-      }
 }

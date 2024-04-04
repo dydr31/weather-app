@@ -22,16 +22,21 @@ const WeatherIcon = (props) => {
   let text = "";
   const isSmall = props.small;
 
+  let isNight = false
+  if(theme === 'dark'){
+    isNight = true
+  }
+
   let weathercode = props.weathercode;
   text = weathercode;
   let icon = "";
-  if (weathercode < 3 && props.isNight === false) {
+  if (weathercode < 3 && isNight === false) {
     icon = Sun;
-  } else if (weathercode < 3 && props.isNight === true) {
+  } else if (weathercode < 3 && isNight === true) {
     icon = Night;
-  } else if (weathercode === 3 && props.isNight === true) {
+  } else if (weathercode === 3 && isNight === true) {
     icon = CloudyNight;
-  } else if (weathercode === 3 && props.isNight === false) {
+  } else if (weathercode === 3 && isNight === false) {
     icon = Cloudy;
   } else if (weathercode >= 40 && weathercode <= 49) {
     icon = Fog;
@@ -49,7 +54,7 @@ const WeatherIcon = (props) => {
 
   return (
     <>
-      {console.log(weathercode)}
+      {/* {console.log(weathercode)} */}
       <img
         className={`${"icon"} ${theme}
          

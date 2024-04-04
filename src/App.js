@@ -6,7 +6,7 @@ import Daily from "./components/Daily/Daily";
 import { ThemeContext } from "./context/ThemeContext";
 import SwitchTheme from "./components/UI/SwitchTheme";
 import { StateContext } from "./context/StateContext";
-import SwitchState from "./components/UI/SwichState";
+import SwitchState from "./components/StateSwitcher/SwichState";
 
 function App() {
   const { theme, setTheme } = useContext(ThemeContext);

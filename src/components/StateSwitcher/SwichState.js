@@ -5,7 +5,7 @@ import classes from "./SwitchState.module.scss";
 import { DataContext } from "../../context/DataContext";
 
 const SwitchState = (props) => {
-  const { state, setState } = useContext(StateContext);
+  const { setState } = useContext(StateContext);
 
   const {theme} = useContext(ThemeContext)
 
