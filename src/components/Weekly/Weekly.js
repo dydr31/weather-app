@@ -1,8 +1,8 @@
-import React, { useCallback, useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import WeeklyCard from "./WeeklyCard";
 import WeeklyTodayCard from "./WeeklyTodayCard";
 import Loading from "../UI/Loading";
-import "./Weekly.scss";
+import classes from "./Weekly.module.scss";
 import { DataContext } from "../../context/DataContext";
 import { getWeatherData } from "../../util/getWeatherData";
 
@@ -11,7 +11,7 @@ const Weekly = (props) => {
   const [firstElement, setFirstElement] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
-  const { lat, lon, dataPoints, setDataPoints } = useContext(DataContext);
+  const { lat, lon, setDataPoints } = useContext(DataContext);
 
   useEffect(() => {
     const getData = async () => {
@@ -32,7 +32,7 @@ const Weekly = (props) => {
     {/* {console.log(dataPoints)} */}
       {isLoading && <Loading />}
       {!isLoading && (
-        <ul className="list">
+        <ul className={classes.list}>
           <WeeklyTodayCard data={firstElement} />
           {data.map((x) => (
             <WeeklyCard key={Math.random()} data={x} />

@@ -13,7 +13,7 @@ const AverageParametersCard = (props) => {
         <hr></hr>
         <li>{props.data.avg_apparent_temperature}°</li>
         <hr></hr>
-        <li> {props.data.precipitation}</li>
+        <li> {props.data.precipitation}mm</li>
         <li> {props.data.precipitation_probability}%</li>
         <hr></hr>
         <li> {props.data.relativehumidity_2m}%</li>

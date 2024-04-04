@@ -7,7 +7,7 @@ import { getWeatherDataForTheWeek } from "../../util/getWeatherData";
 import { DataContext } from "../../context/DataContext";
 import Loading from "../UI/Loading";
 
-function getAverage(data) {
+function getAverage(data, n) {
   let avg_temperature_2m = 0;
   let avg_apparent_temperature = 0;
   let precipitation = 0;
@@ -17,12 +17,12 @@ function getAverage(data) {
   let winddirection_10m = 0;
   let windspeed_10m = 0;
   for (let key in data) {
-    avg_temperature_2m = avg_temperature_2m + data[key].temperature_2m / 6;
+    avg_temperature_2m = avg_temperature_2m + data[key].temperature_2m / n;
     avg_apparent_temperature =
-      avg_apparent_temperature + data[key].apparent_temperature / 6;
-    precipitation = precipitation + data[key].precipitation / 6;
+      avg_apparent_temperature + data[key].apparent_temperature / n;
+    precipitation = precipitation + data[key].precipitation / n;
     precipitation_probability =
-      precipitation_probability + data[key].precipitation_probability / 6;
+      precipitation_probability + data[key].precipitation_probability / n;
     relativehumidity_2m = relativehumidity_2m + data[key].relativehumidity_2m;
     surface_pressure = surface_pressure + data[key].surface_pressure;
     // weathercode: data.hourly.weathercode[key]
@@ -34,10 +34,10 @@ function getAverage(data) {
     avg_apparent_temperature: Math.round(avg_apparent_temperature),
     precipitation: Math.round(precipitation),
     precipitation_probability: Math.round(precipitation_probability),
-    relativehumidity_2m: Math.round(relativehumidity_2m / 6),
-    surface_pressure: Math.round((0.750062 * surface_pressure) / 6),
-    winddirection_10m: Math.round(winddirection_10m / 6),
-    windspeed_10m: Math.round((windspeed_10m * 10) / 6) / 10,
+    relativehumidity_2m: Math.round(relativehumidity_2m / n),
+    surface_pressure: Math.round((0.750062 * surface_pressure) / n),
+    winddirection_10m: Math.round(winddirection_10m / n),
+    windspeed_10m: Math.round((windspeed_10m * 10) / n) / 10,
   };
   // console.log(averageParameters);
   return averageParameters;
@@ -83,10 +83,10 @@ const Daily = (props) => {
             <li className={classes.wind}>wind</li>
           </ul>
 
-          <AverageParametersCard data={getAverage(morning)} time={"Morning"} />
-          <AverageParametersCard data={getAverage(day)} time={"Day"} />
-          <AverageParametersCard data={getAverage(evening)} time={"Evening"} />
-          <AverageParametersCard data={getAverage(night)} time={"Night"} />
+          <AverageParametersCard data={getAverage(morning, 8)} time={"Morning"} />
+          <AverageParametersCard data={getAverage(day, 5)} time={"Day"} />
+          <AverageParametersCard data={getAverage(evening, 5)} time={"Evening"} />
+          <AverageParametersCard data={getAverage(night, 8)} time={"Night"} />
         </ul>
       )}
     </>

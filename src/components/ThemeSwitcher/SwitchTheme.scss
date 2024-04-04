@@ -3,7 +3,7 @@
 .switch-menu {
   display: flex;
   justify-content: flex-end;
-  margin-right: 6%;
+  margin-right: $margin;
   align-items: center;
 }
 .switch-button {
@@ -53,7 +53,7 @@
   .switch-menu {
     display: flex;
     justify-content: flex-end;
-    margin-right: 6%;
+    margin-right: $margin;
     align-items: center;
   }
 }

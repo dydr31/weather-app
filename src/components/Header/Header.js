@@ -29,7 +29,7 @@ const Header = () => {
 
   const sumbitCityHandler = async (event) => {
     event.preventDefault();
-    setCityName(validateCity(cityRef.current.value));
+    // setCityName(validateCity(cityRef.current.value));
     let res = await getCities(validateCity(cityRef.current.value));
     setData(res);
     setShowDropDown(true);

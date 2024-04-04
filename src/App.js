@@ -4,32 +4,28 @@ import Weekly from "./components/Weekly/Weekly";
 import React, { useState, useEffect, useContext } from "react";
 import Daily from "./components/Daily/Daily";
 import { ThemeContext } from "./context/ThemeContext";
-import SwitchTheme from "./components/UI/SwitchTheme";
+import SwitchTheme from "./components/ThemeSwitcher/SwitchTheme";
 import { StateContext } from "./context/StateContext";
 import SwitchState from "./components/StateSwitcher/SwichState";
 
 function App() {
-  const { theme, setTheme } = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
   const { state } = useContext(StateContext);
-
-  const [showError, setShowError] = useState(false);
-
-  
 
   return (
     <div className={`${classes[theme]} ${classes.background}`}>
-      <Header/>
-      {!showError && <SwitchState />}
+      <Header />
+      <main>
+        <SwitchState />
 
-      {showError === false && state === "weekly" && (
-        <Weekly/>
-      )}
+        {state === "weekly" && <Weekly />}
 
-      {showError === false && state === "daily" && <Daily />}
+        {state === "daily" && <Daily />}
 
-      <SwitchTheme />
+        <SwitchTheme />
+      </main>
       <footer className={classes.footer}>
-        <p>copyright by copyright</p>
+        <p>by dydr31@github</p>
         <a
           href="https://www.flaticon.com/free-icons"
           title="icons"
