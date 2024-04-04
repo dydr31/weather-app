@@ -9,25 +9,12 @@ import { StateContext } from "./context/StateContext";
 import SwitchState from "./components/UI/SwichState";
 
 function App() {
-  const { theme } = useContext(ThemeContext);
+  const { theme, setTheme } = useContext(ThemeContext);
   const { state } = useContext(StateContext);
-  
+
   const [showError, setShowError] = useState(false);
-  // async function getCityCoords() {
-  //   const response = await fetch("https://geocode.maps.co/search?q=" + city);
-  //   const data = await response.json();
 
-  //   if (data.length === 0) {
-  //     setShowError(true);
-  //   } else {
-  //     setShowError(false);
-  //     setCoords({ latitude: data[0].lat, longitude: data[0].lon });
-  //   }
-  // }
-
-  useEffect(() => {
-    // getCityCoords();
-  }, []);
+  
 
   return (
     <div className={`${classes[theme]} ${classes.background}`}>
