@@ -9,9 +9,13 @@
 }
 .switch-button {
   background-color: $main-color;
+  color: black;
   border: none;
   font-size: large;
   cursor: pointer;
+  padding: .1rem;
+  padding-left: .3rem;
+  padding-right: .3rem;
 }
 
 .switch-button:hover,

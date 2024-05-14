@@ -32,13 +32,13 @@ const SwitchState = (props) => {
       <div>
         <button
           onClick={setWeeklyStateHandle}
-          className={`${classes.button} ${isOn ? classes.on : ''}`}
+          className={`${classes.button} ${isOn ? classes.on : undefined}`}
         >
           weekly
         </button>
         <button
           onClick={setDailyStateHandle}
-          className={`${classes.button} ${!isOn ? classes.on : ''}`}
+          className={`${classes.button} ${!isOn ? classes.on : undefined}`}
         >
           daily
         </button>
