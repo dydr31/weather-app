@@ -1,10 +1,11 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useContext, useState } from "react";
 
 export const StateContext = createContext({
   state: "weekly",
   undefined,
   showDropDown: false,
   undefined,
+  clearCityInput: false,
 });
 
 export const StateProvider = (props) => {
@@ -20,11 +21,17 @@ export const StateProvider = (props) => {
     setShowDropDown(boolean);
   };
 
+  const [clearCityInput, setClearCityInput] = useState(false)
+
+
+
   const contextValue = {
     state,
     setState: setStateHandler,
     showDropDown,
     setShowDropDown,
+    clearCityInput,
+    setClearCityInput
     // setShowDropDown: setShowDropDownHandler,
   };
   return (

@@ -18,7 +18,7 @@ const Header = () => {
 
   const cityRef = useRef(null);
 
-  const { setShowDropDown } = useContext(StateContext);
+  const { setShowDropDown, clearCityInput, setClearCityInput } = useContext(StateContext);
 
   const [data, setData] = useState([{}]);
 
@@ -28,6 +28,11 @@ const Header = () => {
     setData(res);
     setShowDropDown(true);
   };
+
+  if (clearCityInput) {
+    cityRef.current.value = ''
+    setClearCityInput(false)
+  }
 
   return (
     <>

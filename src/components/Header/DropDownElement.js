@@ -8,15 +8,16 @@ import { ThemeContext } from "../../context/ThemeContext";
 
 export const DropDownElement = (props) => {
   const { theme } = useContext(ThemeContext);
-  const setShow = useContext(StateContext).setShowDropDown;
-  const setCityName = useContext(DataContext).setCityName;
+  const {setShowDropDown, setClearCityInput } = useContext(StateContext);
+  const {setCityName} = useContext(DataContext);
 
   const { setCoords } = useContext(DataContext);
 
   const onClickHandler = () => {
-    setShow(false);
+    setShowDropDown(false);
     setCoords(props.data.lat, props.data.lon);
     setCityName(trimCityName(props.data.name));
+    setClearCityInput(true)
   };
 
   const trimCityName = (name) => {
