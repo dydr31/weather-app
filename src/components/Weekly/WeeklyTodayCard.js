@@ -1,4 +1,4 @@
-import "./WeeklyTodayCard.scss";
+import classes from "./WeeklyTodayCard.module.scss";
 import WeatherIcon from "../UI/WeatherIcon";
 import Date from "../UI/Date";
 import Temperature from "../UI/Temperature";
@@ -6,46 +6,51 @@ import { ThemeContext } from "../../context/ThemeContext";
 import React, { useContext } from "react";
 import Wind from "../UI/Wind";
 
-const WeeklyTodayCard = (props) => {
+const WeeklyTodayCard = ({ data }) => {
   const { theme } = useContext(ThemeContext);
 
   let time = "";
-  if (props.data.time != undefined) {
-    time = props.data.time;
+  if (data.time != undefined) {
+    time = data.time;
+  }
+
+  let uv = 0;
+  if (data.uv){
+    uv = data.uv
   }
 
   return (
-    <li className={`${"today"} ${theme}`}>
-      <Date time={time} text={"Today, "} />
+    <>
+    
+      <li className={`${classes.today} ${theme}`}>
+        <Date time={time} text={"Today, "} />
 
-      <div className="main-elements">
-        <WeatherIcon weathercode={props.data.wcode} isNight={false} />
-        <Temperature
-          isC={props.isC}
-          tMax={props.data.tMax}
-          tMin={props.data.tMin}
-        />
-      </div>
+        <div className={classes["main-elements"]}>
+          <WeatherIcon weathercode={data.wcode} isNight={false} />
+          <Temperature tMax={data.tMax} tMin={data.tMin} />
+        </div>
 
-      <ul className="today__list">
-        <li className="today__list_element">
-          <p>uv index:</p>
-          <p>{Math.round(props.data.uv)}</p>
-        </li>
+        <ul className={classes["today__list"]}>
+          <li className={classes["today__list_element"]}>
+            <p>uv index:</p>
+            <p>{Math.round(uv)}</p>
+          </li>
 
-        <li className="today__list_element">
-          <p>percipitations probability:</p>
-          <p>{Math.round(props.data.prcp_prob / 10) * 10}%</p>
-        </li>
+          <li className={classes["today__list_element"]}>
+            <p>percipitations:</p>
+            <p>{Math.round(data.prcp_prob / 10) * 10}%</p>
+          </li>
 
-        <li className="today__list_element">
-          <p>wind:</p>
-          <p>
-            {props.data.wind} km/h, <Wind dir={props.data.wind_direction} />
-          </p>
-        </li>
-      </ul>
-    </li>
+          <li className={classes["today__list_element"]}>
+            <p>wind:</p>
+            <div className={classes["wind"]}>
+              <p className={classes["wind-text"]}>{data.wind} km/h,</p>
+              <Wind dir={data.wind_dir} />
+            </div>
+          </li>
+        </ul>
+      </li>
+    </>
   );
 };
 

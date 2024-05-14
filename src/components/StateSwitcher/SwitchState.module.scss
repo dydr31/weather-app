@@ -1,44 +1,38 @@
-@import '../../variables';
+@import "../../variables";
 
-.switch{
-    margin-right: $margin;
-    margin-left: $margin;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    
+.switch {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.button{
-    background-color: none;
-    border: none;
-    font-size: 18px;
+.button {
+  background-color: none;
+  border: none;
+  font-size: 18px;
 }
 
-.switch h2{
-    text-align: center;
+.button:hover,
+.button:active,
+.on {
+  background-color: rgb(200, 200, 200);
 }
 
-.button:hover, .button:active, .on{
-    background-color: rgb(200, 200, 200);
-}
-.dark{
-    .button{
-        background-color: rgb(107, 102, 114);
-        color:rgb(206, 204, 204);
-    }
-    .button:hover, .button:active, .on{
-        background-color: rgb(75, 72, 73);
-    }
+.dark {
+  .button {
+    background-color: rgb(107, 102, 114);
+    color: rgb(206, 204, 204);
+  }
+  .button:hover,
+  .button:active,
+  .on {
+    background-color: rgb(75, 72, 73);
+  }
 }
 
-@media (min-width: 700px){
-    .switch h2 {
-        text-align: left;
-        margin: 0.5rem;
-        margin-left: 0;
-        
-        
-      }
+@media (max-width: 700px) {
+  .switch {
+    margin-left: $margin/4;
+    margin-right: $margin/4;
+  }
 }

@@ -1,3 +1,5 @@
+@import '../../variables';
+
 .li{
     font-size: small;
     border-top: 1px grey solid;
@@ -11,4 +13,8 @@
 .li p {
     margin: 0;
     padding:0;
+}
+
+.dark:hover{
+    background-color: $accent-color-dark;
 }

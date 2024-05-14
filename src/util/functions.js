@@ -71,11 +71,11 @@ export async function getCities(cityName) {
 export async function getLocation() {
   try {
     let res = await navigator.geolocation.getCurrentPosition((data) => {
-      return data;
-      return {
-        lat: Math.round(data.coords.latitude * 100) / 100,
-        lon: Math.round(data.coords.longitude * 100) / 100,
-      };
+      return data.json();
+      // return {
+      //   lat: Math.round(data.coords.latitude * 100) / 100,
+      //   lon: Math.round(data.coords.longitude * 100) / 100,
+      // };
     });
 
     setTimeout(() => {

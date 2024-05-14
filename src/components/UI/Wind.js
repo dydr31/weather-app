@@ -1,14 +1,12 @@
 import React, { useContext } from "react";
 import arrow from "../../assets/right-arrow.png";
 import { ThemeContext } from "../../context/ThemeContext";
-import classes from './Wind.module.scss'
+import classes from "./Wind.module.scss";
 
+const Wind = ({dir}) => {
+  const { theme } = useContext(ThemeContext);
 
-const Wind = props => {
-    const {theme} = useContext(ThemeContext)
-
-    let style={}
-  let dir = props.dir;
+  let style = {};
   let wind_dir = "";
   if (dir <= 22.5 || dir > 337.5) {
     wind_dir = "N";
@@ -49,15 +47,19 @@ const Wind = props => {
     };
   }
 
-  let image = <img src={arrow} className={`${classes["arrow-image"]} ${classes[theme]}`} style={style} alt='arrow'/>;
-    return (
-        <React.Fragment >
-            <div className={classes[theme]}>
-            {wind_dir} {image}
-            </div>
-        </React.Fragment>
-        
-    )
-}
+  return (
+    <>
+      <div className={`${classes[theme]} ${classes.wind}`}>
+        <p>{wind_dir}</p>
+        <img
+          src={arrow}
+          className={`${classes["arrow-image"]} ${classes[theme]}`}
+          style={style}
+          alt="arrow"
+        />
+      </div>
+    </>
+  );
+};
 
-export default Wind
+export default Wind;

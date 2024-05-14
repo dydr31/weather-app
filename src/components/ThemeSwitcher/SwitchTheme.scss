@@ -3,7 +3,7 @@
 .switch-menu {
   display: flex;
   justify-content: flex-end;
-  margin-right: $margin;
+  margin-top: 1rem;
   align-items: center;
 }
 .switch-button {
@@ -49,11 +49,11 @@
   }
 }
 
-@media (min-width: 700px) {
+@media (max-width: 700px) {
   .switch-menu {
     display: flex;
     justify-content: flex-end;
-    margin-right: $margin;
+    margin-right: $margin/4;
     align-items: center;
   }
 }

@@ -1,11 +1,11 @@
 import React, { useCallback, useState, useEffect, useContext } from "react";
-import DailyCard from "./DailyCard";
 import classes from "./Daily.module.scss";
 import AverageParametersCard from "./AverageParametersCard";
 
 import { getWeatherDataForTheWeek } from "../../util/getWeatherData";
 import { DataContext } from "../../context/DataContext";
 import Loading from "../UI/Loading";
+import { StateContext } from "../../context/StateContext";
 
 function getAverage(data, n) {
   let avg_temperature_2m = 0;
@@ -51,6 +51,7 @@ const Daily = (props) => {
   const [evening, setEvening] = useState([]);
   const [night, setNight] = useState([]);
   const { lat, lon } = useContext(DataContext);
+  const {state} = useContext(StateContext)
 
   useEffect(() => {
     setIsLoading(true);
@@ -70,10 +71,11 @@ const Daily = (props) => {
 
   return (
     <>
-      {/* {console.log(data)} */}
-      {/* {console.log(morning)} */}
-      {isLoading && <Loading/>}
-      {!isLoading && (
+
+      {isLoading && state === "daily" &&<Loading/>}
+      {!isLoading && state === "daily" && (
+        <>
+       
         <ul className={classes.averages}>
           <ul className={classes.list}>
             <li>feels like</li>
@@ -88,6 +90,7 @@ const Daily = (props) => {
           <AverageParametersCard data={getAverage(evening, 5)} time={"Evening"} />
           <AverageParametersCard data={getAverage(night, 8)} time={"Night"} />
         </ul>
+        </>
       )}
     </>
   );

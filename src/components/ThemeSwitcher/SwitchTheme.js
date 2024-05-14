@@ -1,28 +1,48 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
-import './SwitchTheme.scss'
+import "./SwitchTheme.scss";
 
-const SwitchTheme = (props) => {
+const SwitchTheme = () => {
   const { theme, setTheme } = useContext(ThemeContext);
-  const [isOn, setIsOn] = useState (true)
+  const [isOn, setIsOn] = useState(false);
 
-  const switchToC = () => {
+  const switchToLight = () => {
     setTheme("light");
-    setIsOn(true)
+    setIsOn(true);
   };
 
-  const switchToF = () => {
+  const switchToDark = () => {
     setTheme("dark");
-    setIsOn(false)
+    setIsOn(false);
   };
 
-  
+  useEffect(() => {
+    let time = new Date().getHours();
+    if (time > 6 && time < 19) {
+      setTheme("light");
+      setIsOn(true)
+    }
+    else{
+
+    }
+  }, [])
+
 
   return (
-    <div className={`${theme} ${'switch-menu'}`}>
+    <div className={`${theme} ${"switch-menu"}`}>
       <p>Theme:</p>
-      <button onClick={switchToC} className={`  ${'switch-button'} ${isOn ? 'on':'off'}` } >light</button>
-      <button onClick={switchToF} className={`  ${'switch-button'} ${isOn ? 'off':'on'}` }>dark</button>
+      <button
+        onClick={switchToLight}
+        className={`  ${"switch-button"} ${isOn ? "on" : "off"}`}
+      >
+        light
+      </button>
+      <button
+        onClick={switchToDark}
+        className={`  ${"switch-button"} ${isOn ? "off" : "on"}`}
+      >
+        dark
+      </button>
     </div>
   );
 };

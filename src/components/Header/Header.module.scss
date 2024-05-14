@@ -2,8 +2,9 @@
 
 .header{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  justify-content: space-between;
 }
 
 .h1{
@@ -47,18 +48,8 @@
 
 }
 .dark{
-    // button{
-    //     background-color: $main-color-dark;
-    //     color:white;
-    // }
-    // button:hover
-    // button:active{
-    //     background-color: map-get($active-button-colors-dark, main );
-        
-    // }
-    // .nav-image{
-    //   filter: brightness(0) invert(1);
-    // }
+    background-color: $main-color-dark;
+    color: white;
 }
 
 .elements {
@@ -67,28 +58,29 @@
   gap: .2rem;
 }
 
+.text-input{
+  border: $border;
+  border-radius: .1rem;
+  padding: .2rem;
 
-@media (min-width: 700px) {
+}
+
+
+@media (max-width: 700px) {
   .top {
-    margin-left: $margin*2;
-    margin-right: $margin*2;
+    margin-left: 2rem;
+    margin-right: 2rem;
   }
-  .location-inputs{
-    display: flex;
-    flex-direction: row;
-    column-gap: 1rem;
+
+  .text-input{
+    font-size: 16px;
   }
-  .input-field {
-    
-    font-size: 25px;
-  }
+
   .header {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding-left: $margin;
-    padding-right: $margin;
   }
 }
 

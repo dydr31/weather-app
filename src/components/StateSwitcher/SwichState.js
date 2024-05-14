@@ -7,7 +7,7 @@ import { DataContext } from "../../context/DataContext";
 const SwitchState = (props) => {
   const { setState } = useContext(StateContext);
 
-  const {theme} = useContext(ThemeContext)
+  const {theme, setTheme} = useContext(ThemeContext)
 
   const {cityName} = useContext(DataContext)
 
@@ -24,8 +24,11 @@ const SwitchState = (props) => {
 
   
   return (
+  
     <div className={`${classes.switch} ${classes[theme]}`}>
+
       <h2>{cityName}</h2>
+
       <div>
         <button
           onClick={setWeeklyStateHandle}
@@ -40,7 +43,9 @@ const SwitchState = (props) => {
           daily
         </button>
       </div>
+
     </div>
+  
   );
 };
 

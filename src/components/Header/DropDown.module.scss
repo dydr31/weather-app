@@ -1,11 +1,16 @@
-.ul{
-    background-color: rgb(236, 236, 236);
-    list-style: none;
-    position: absolute;
-    padding: 0;
-    top: 2.7rem;
-    border-bottom: 1px grey solid;
-    max-height: 80vh;
-    overflow: auto;
-    
+@import '../../variables';
+
+.ul {
+  background-color: rgb(236, 236, 236);
+  list-style: none;
+  position: absolute;
+  padding: 0;
+  top: 2.7rem;
+  border-bottom: 1px grey solid;
+  max-height: 80vh;
+  overflow: auto;
+}
+
+.dark {
+    background-color: $main-color-dark;
 }

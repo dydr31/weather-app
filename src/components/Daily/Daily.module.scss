@@ -3,25 +3,20 @@
 .daily{
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-
-    border-left: .5px grey solid;
-    border-bottom: .5px grey solid;
-    
+    border-left: $border;
+    border-bottom: $border;
     padding: 0;
-    margin: 1rem;
 }
 
 .averages{
     padding: 1rem;
-    border-top: .5px solid grey;
-    border-bottom: .5px solid grey;
-    // background-color: $card-background;
     display: grid;
     margin-top:0;
-    // margin-left: .5em;
-    // margin-right: .5em;
     grid-template-columns: 0% repeat(4, 25%);
     flex-direction: row;
+
+    border: $border;
+    border-radius: .2rem;
 }
 
 .list{
@@ -57,20 +52,11 @@
     top: 17.7rem;
 }
 
-@media (min-width: 700px){
-    .daily{
-        margin-left: 6%;
-        margin-right: 6%;
-        padding: 0;
-        
-        // max-width: 50rem;
-    }
+@media (max-width: 700px){
     .averages{
-        border: .5px solid grey;
-        border-radius: .2rem;
-       
-        
-        margin-left: 6%;
-        margin-right: 6%;
+        border: none;
+        border-top: $border;
+        border-bottom: $border;
+        border-radius: 0;
     }
 }

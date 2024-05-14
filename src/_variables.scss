@@ -19,8 +19,10 @@ $secondary-text-color-dark: rgb(193, 183, 229);
 
 $size-default: .5rem;
 $size-small: .2rem;
-$margin: 7%;
-$big-screen-margin: 20%;
+$margin: 18%;
+$max-width: 800px;
+
+$border: .5px solid grey;
 
 
 $active-button-colors: (main: black, secondary: white);
