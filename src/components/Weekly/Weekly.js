@@ -34,7 +34,7 @@ const Weekly = () => {
 
      {isLoading && state === "weekly" && <Loading />}
       {!isLoading && state === "weekly" && (
-        <div className={classes.container}>
+
 
         
         <ul className={classes.list}>
@@ -43,7 +43,7 @@ const Weekly = () => {
             <WeeklyCard key={Math.random()} data={x} />
           ))}
         </ul>
-        </div>
+      
       )}
     </>
   );
