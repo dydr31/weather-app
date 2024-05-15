@@ -51,11 +51,11 @@ const Temperature = (props) => {
           <p className="tMax">{tMax}°</p>
         </ColorBackground>
       </li>
-      <li className="tMin">
+{props.tMin !== undefined &&      <li className="tMin">
         <ColorBackground tMax={props.tMin}>
           <p>{tMin}°</p>
         </ColorBackground>
-      </li>
+      </li>}
     </ul>
   );
 };

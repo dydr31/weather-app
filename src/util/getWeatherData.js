@@ -48,7 +48,7 @@ export const getWeatherDataForTheWeek = (async (lat, lon) => {
       "&hourly=temperature_2m,relativehumidity_2m,apparent_temperature,precipitation_probability,precipitation,weathercode,surface_pressure,windspeed_10m,winddirection_10m"
   );
   const data = await response.json();
-//   console.log(data);
+  // console.log(data);
 
   let restructuredData = [];
   let todayData = [];
@@ -96,3 +96,37 @@ export const getWeatherDataForTheWeek = (async (lat, lon) => {
   return restructuredData
   
 });
+
+export const getDataForNow = async (lat, lon) => {
+  const response = await fetch(
+    "https://api.open-meteo.com/v1/forecast?latitude=" +
+      lat +
+      "&longitude=" +
+      lon +
+      "&hourly=temperature_2m,relativehumidity_2m,apparent_temperature,precipitation_probability,precipitation,weathercode,surface_pressure,windspeed_10m,winddirection_10m"
+  );
+  const data = await response.json();
+  let hour = (new Date ()).getHours()
+  
+  // console.log(hour)
+  let key = hour
+  let result = {
+    time: new Date(
+      data.hourly.time[key].slice(0, 4),
+      data.hourly.time[key].slice(5, 7) - 1,
+      data.hourly.time[key].slice(8, 10),
+      data.hourly.time[key].slice(11, 13)
+    ),
+    apparent_temperature: data.hourly.apparent_temperature[key],
+    precipitation: data.hourly.precipitation[key],
+    precipitation_probability: data.hourly.precipitation_probability[key],
+    relativehumidity_2m: data.hourly.relativehumidity_2m[key],
+    surface_pressure: data.hourly.surface_pressure[key],
+    temperature_2m: data.hourly.temperature_2m[key],
+    weathercode: data.hourly.weathercode[key],
+    winddirection_10m: data.hourly.winddirection_10m[key],
+    windspeed_10m: data.hourly.windspeed_10m[key],
+  }
+  // console.log(result)
+  return result
+}

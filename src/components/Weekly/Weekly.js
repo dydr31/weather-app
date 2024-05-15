@@ -4,7 +4,7 @@ import WeeklyTodayCard from "./WeeklyTodayCard";
 import Loading from "../UI/Loading";
 import classes from "./Weekly.module.scss";
 import { DataContext } from "../../context/DataContext";
-import { getWeatherData } from "../../util/getWeatherData";
+import { getDataForNow, getWeatherData } from "../../util/getWeatherData";
 import { StateContext } from "../../context/StateContext";
 
 const Weekly = () => {
@@ -21,10 +21,13 @@ const Weekly = () => {
       let res =  await getWeatherData(lat, lon);
       if (res !== undefined) {
         setData(res.slice(1,7))
-        setFirstElement(res[0])
+        
         setDataPoints(res)
       }
       setIsLoading(false)
+      let todayRes = await getDataForNow(lat, lon);
+      setFirstElement(todayRes)
+      
     };
     getData()
   }, [lat]);

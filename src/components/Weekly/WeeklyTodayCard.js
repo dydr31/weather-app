@@ -10,42 +10,44 @@ const WeeklyTodayCard = ({ data }) => {
   const { theme } = useContext(ThemeContext);
 
   let time = "";
+
   if (data.time != undefined) {
     time = data.time;
   }
 
-  let uv = 0;
-  if (data.uv){
-    uv = data.uv
-  }
+  // let uv = 0;
+  // if (data.uv){
+  //   uv = data.uv
+  // }
 
   return (
     <>
-    
+    {console.log(data)}
       <li className={`${classes.today} ${theme}`}>
         <Date time={time} text={"Today, "} />
 
         <div className={classes["main-elements"]}>
-          <WeatherIcon weathercode={data.wcode} isNight={false} />
-          <Temperature tMax={data.tMax} tMin={data.tMin} />
+          <WeatherIcon weathercode={data.weathercode} isNight={false} />
+          <Temperature tMax={data.temperature_2m} tMin={data.tMin} />
+
         </div>
 
         <ul className={classes["today__list"]}>
           <li className={classes["today__list_element"]}>
-            <p>uv index:</p>
-            <p>{Math.round(uv)}</p>
+            <p>feels like:</p>
+            <p>{data.apparent_temperature}</p>
           </li>
 
           <li className={classes["today__list_element"]}>
             <p>percipitations:</p>
-            <p>{Math.round(data.prcp_prob / 10) * 10}%</p>
+            <p>{Math.round(data.precipitation_probability / 10) * 10}%</p>
           </li>
 
           <li className={classes["today__list_element"]}>
             <p>wind:</p>
             <div className={classes["wind"]}>
-              <p className={classes["wind-text"]}>{data.wind} km/h,</p>
-              <Wind dir={data.wind_dir} />
+              <p className={classes["wind-text"]}>{data.windspeed_10m} km/h,</p>
+              <Wind dir={data.winddirection_10m} />
             </div>
           </li>
         </ul>
