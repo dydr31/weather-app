@@ -6,6 +6,7 @@ export const StateContext = createContext({
   showDropDown: false,
   undefined,
   clearCityInput: false,
+  mobileSearch: false,
 });
 
 export const StateProvider = (props) => {
@@ -23,6 +24,8 @@ export const StateProvider = (props) => {
 
   const [clearCityInput, setClearCityInput] = useState(false)
 
+  const [mobileSearch, setMobileSearch] = useState(false)
+
 
 
   const contextValue = {
@@ -31,7 +34,9 @@ export const StateProvider = (props) => {
     showDropDown,
     setShowDropDown,
     clearCityInput,
-    setClearCityInput
+    setClearCityInput,
+    mobileSearch,
+    setMobileSearch,
     // setShowDropDown: setShowDropDownHandler,
   };
   return (

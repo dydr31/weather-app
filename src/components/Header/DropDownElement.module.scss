@@ -18,3 +18,10 @@
 .dark:hover{
     background-color: $accent-color-dark;
 }
+
+@media(max-width: 700px){
+    .li{
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}

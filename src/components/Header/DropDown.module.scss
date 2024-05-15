@@ -1,4 +1,4 @@
-@import '../../variables';
+@import "../../variables";
 
 .ul {
   background-color: rgb(236, 236, 236);
@@ -9,8 +9,18 @@
   border-bottom: 1px grey solid;
   max-height: 80vh;
   overflow: auto;
+  z-index: 101;
 }
 
 .dark {
-    background-color: $main-color-dark;
+  background-color: $main-color-dark;
+}
+
+@media (max-width: 700px) {
+  .ul {
+    top: 6.3rem;
+    left:0;
+    // height: 100vh;
+   
+  }
 }

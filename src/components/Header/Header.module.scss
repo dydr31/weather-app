@@ -47,10 +47,7 @@
   justify-content: flex-end;
 
 }
-.dark{
-    background-color: $main-color-dark;
-    color: white;
-}
+
 
 .elements {
   display: flex;
@@ -68,15 +65,15 @@
 
 }
 
+.menu-image{
+  display: none;
+}
+
 
 @media (max-width: 700px) {
   .top {
     margin-left: 2rem;
     margin-right: 2rem;
-  }
-
-  .text-input{
-    font-size: 16px;
   }
 
   .header {
@@ -85,6 +82,25 @@
     align-items: center;
     justify-content: space-between;
   }
+
+  // .logo-image{
+  //   display: none;
+  // }
+
+  .menu-image{
+    display: block;
+    width: 2rem;
+    position: absolute;
+    left: 1rem;
+  }
+
+  // .h1{
+  //   margin: 0.5rem;
+    
+  // }
+  // .dont-show-on-mobile{
+  //   display: none;
+  // }
 }
 
 

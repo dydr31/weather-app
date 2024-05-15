@@ -24,17 +24,32 @@ export const DataContext = createContext({
 });
 
 export const DataContextProvider = (props) => {
-  const [cityName, setCityName] = useState("Moscow");
-  const [lat, setLat] = useState(55.741469);
-  const [lon, setLon] = useState(37.615561);
+  let savedCityName = localStorage.getItem('City Name')
+  if (savedCityName === undefined){
+    savedCityName = 'Moscow'
+  }
+
+  const [cityName, setCityName] = useState(savedCityName);
+
+  let savedLat = localStorage.getItem('lat')
+  if (savedLat === undefined){
+    savedLat = 55.741469
+    savedLon = 37.615561
+  }
+  const [lat, setLat] = useState(savedLat);
+  let savedLon = localStorage.getItem('lon')
+  const [lon, setLon] = useState(savedLon);
 
   const setCityNameHandler = (cityName) => {
     setCityName(cityName);
+    localStorage.setItem('City Name', cityName)
   };
 
   const setCoords = (lat, lon) => {
     setLat(lat);
     setLon(lon);
+    localStorage.setItem('lat', lat)
+    localStorage.setItem('lon', lon)
   };
 
   const [dataPoints, setDataPoints] = useState([

@@ -1,0 +1,28 @@
+@import '../../variables';
+
+.modal{
+    background-color: red;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 101;
+}
+
+.content{
+    z-index: 102;
+    // position: absolute;
+    // top: 1rem;
+    // left: 1rem;
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+    // top: 1rem;
+}
+
+.arrow{
+    transform: rotate(180deg);
+    width: 1.7rem;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+}
