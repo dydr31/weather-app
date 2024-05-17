@@ -28,14 +28,14 @@ const WeeklyTodayCard = ({ data }) => {
 
         <div className={classes["main-elements"]}>
           <WeatherIcon weathercode={data.weathercode} isNight={false} />
-          <Temperature tMax={data.temperature_2m} tMin={data.tMin} />
+          <Temperature tMax={Math.round(data.temperature_2m)} tMin={data.tMin} />
 
         </div>
 
         <ul className={classes["today__list"]}>
           <li className={classes["today__list_element"]}>
             <p>feels like:</p>
-            <p>{data.apparent_temperature}</p>
+            <p>{Math.round(data.apparent_temperature)}</p>
           </li>
 
           <li className={classes["today__list_element"]}>
