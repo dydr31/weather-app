@@ -15,14 +15,11 @@ const WeeklyTodayCard = ({ data }) => {
     time = data.time;
   }
 
-  // let uv = 0;
-  // if (data.uv){
-  //   uv = data.uv
-  // }
+  
 
   return (
     <>
-    {console.log(data)}
+    
       <li className={`${classes.today} ${theme}`}>
         <Date time={time} text={"Today, "} />
 

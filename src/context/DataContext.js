@@ -25,19 +25,21 @@ export const DataContext = createContext({
 
 export const DataContextProvider = (props) => {
   let savedCityName = localStorage.getItem('City Name')
-  if (savedCityName === undefined){
+  if (savedCityName === null){
     savedCityName = 'Moscow'
   }
 
   const [cityName, setCityName] = useState(savedCityName);
 
   let savedLat = localStorage.getItem('lat')
-  if (savedLat === undefined){
+  let savedLon = localStorage.getItem('lon')
+  
+  if (savedLat === null){
     savedLat = 55.741469
     savedLon = 37.615561
   }
   const [lat, setLat] = useState(savedLat);
-  let savedLon = localStorage.getItem('lon')
+  
   const [lon, setLon] = useState(savedLon);
 
   const setCityNameHandler = (cityName) => {

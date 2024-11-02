@@ -38,8 +38,7 @@ export const getWeatherData = async (lat, lon) => {
   }
 };
 
-export const getWeatherDataForTheWeek = (async (lat, lon) => {
-  
+export const getWeatherDataForTheWeek = async (lat, lon) => {
   const response = await fetch(
     "https://api.open-meteo.com/v1/forecast?latitude=" +
       lat +
@@ -77,7 +76,7 @@ export const getWeatherDataForTheWeek = (async (lat, lon) => {
     });
   }
 
-//   console.log(restructuredData);
+  //   console.log(restructuredData);
   for (let i = 0; i < 24; i++) {
     todayData.push(restructuredData[i]);
   }
@@ -87,15 +86,14 @@ export const getWeatherDataForTheWeek = (async (lat, lon) => {
   for (let i = 12; i <= 17; i++) {
     dayData.push(restructuredData[i]);
   }
-  for (let i = 18; i<= 23; i++) {
-      eveningData.push(restructuredData[i])
+  for (let i = 18; i <= 23; i++) {
+    eveningData.push(restructuredData[i]);
   }
-  for (let i = 24; i<= 29; i++) {
-      nightData.push(restructuredData[i])
+  for (let i = 24; i <= 29; i++) {
+    nightData.push(restructuredData[i]);
   }
-  return restructuredData
-  
-});
+  return restructuredData;
+};
 
 export const getDataForNow = async (lat, lon) => {
   const response = await fetch(
@@ -106,10 +104,10 @@ export const getDataForNow = async (lat, lon) => {
       "&hourly=temperature_2m,relativehumidity_2m,apparent_temperature,precipitation_probability,precipitation,weathercode,surface_pressure,windspeed_10m,winddirection_10m"
   );
   const data = await response.json();
-  let hour = (new Date ()).getHours()
-  
+  let hour = new Date().getHours();
+
   // console.log(hour)
-  let key = hour
+  let key = hour;
   let result = {
     time: new Date(
       data.hourly.time[key].slice(0, 4),
@@ -126,7 +124,13 @@ export const getDataForNow = async (lat, lon) => {
     weathercode: data.hourly.weathercode[key],
     winddirection_10m: data.hourly.winddirection_10m[key],
     windspeed_10m: data.hourly.windspeed_10m[key],
-  }
+  };
   // console.log(result)
-  return result
-}
+  return result;
+};
+
+// export const newFunction = async (lat, lon) => {
+//   const response = await fetch(
+//     "https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&hourly=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation_probability,precipitation,weather_code,wind_speed_10m,wind_direction_10m"
+//   );
+// };
